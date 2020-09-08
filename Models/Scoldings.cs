@@ -1,5 +1,5 @@
 using System;
-namespace TamogotchiAPI.Models
+namespace TamagotchiAPI.Models
 {
     public class Scolding
     {

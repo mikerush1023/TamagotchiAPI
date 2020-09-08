@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TamogotchiAPI.Models;
-namespace TamogotchiAPI.Controllers
+using TamagotchiAPI.Models;
+namespace TamagotchiAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -17,12 +17,9 @@ namespace TamogotchiAPI.Controllers
         {
             _context = context;
         }
-        private async Task<Pet> FindAsync(int petId)
-        {
-            return await _context.Pets.FirstOrDefaultAsync(pet => pet.PetId == petId);
-        }
+
         [HttpGet]
-        private async Task<ActionResult<IEnumerable<Pet>>> GetPets()
+        public async Task<ActionResult<IEnumerable<Pet>>> GetPets()
         {
             return await _context.Pets.OrderBy(row => row.PetId).ToListAsync();
         }
